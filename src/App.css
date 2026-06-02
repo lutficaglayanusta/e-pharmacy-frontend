@@ -1,0 +1,20 @@
+.register-page{
+    display: flex;
+    align-items: center;
+    position: relative;
+    top:200px;
+}
+.register-header{
+    position: relative;
+    width: 70%;
+}
+.register-page h1{
+    font-size: 54px;
+   width: 70%;
+}
+.register-page img{
+    width: 15%;
+    position: absolute;
+    left: 400px;
+    top:-30px;
+}

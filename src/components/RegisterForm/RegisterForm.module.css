@@ -1,0 +1,20 @@
+.form{
+    width:70%
+}
+.form input{
+    padding:10px 15px;
+    margin:10px;
+    border-radius:30px;
+    border:1px solid #ccc;
+}
+.form input::placeholder{
+    font-size:12px;
+}
+.error{
+    display:inline-block;
+    color:red;
+    font-size:12px;
+}
+.error::before{
+    content: "*";
+}

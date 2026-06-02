@@ -1,6 +1,8 @@
 import { Formik, Field, Form,ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from 'yup';
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/operations";
  
 
 const LoginSchema = Yup.object().shape({
@@ -9,8 +11,12 @@ const LoginSchema = Yup.object().shape({
 });
 
 const LoginForm = () => {
+
+  const dispatch = useDispatch();
+
+
   const handleSubmit = (values) => {
-    console.log(values);
+    dispatch(login(values));
   };
 
   return (

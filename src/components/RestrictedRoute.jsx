@@ -10,7 +10,7 @@ const RestrictedRoute = ({ component: Component, redirectTo = "/" }) => {
 
   return (
     <>
-      {isLoggedIn ? <Navigate to={redirectTo} /> : <Component /> }
+      {isLoggedIn ? <Navigate to={redirectTo} /> : Component  }
     </>
   )
 }
