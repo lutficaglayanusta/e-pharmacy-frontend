@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const MedicineStorePage = lazy(() => import("./pages/MedicineStorePage"));
+const ProductsPage = lazy(() => import("./pages/ProductsPage"));
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             }
           />
           <Route path="/medicine-store" element={<MedicineStorePage />} />
+          <Route path="/medicine" element={<ProductsPage />} />
         </Routes>
       </Suspense>
       <Footer />
