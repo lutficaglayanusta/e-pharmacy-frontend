@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 import styles from "./Products.module.css";
 
@@ -15,7 +16,7 @@ const Products = ({
       <div className={styles.productsGrid}>
         {products && products.length > 0 ? (
           products.map((product) => (
-            <div key={product.id} className={styles.productCard}>
+            <div key={product._id} className={styles.productCard}>
               <div className={styles.imageContainer}>
                 <img
                   src={product.photo}
@@ -27,6 +28,9 @@ const Products = ({
               <p className={styles.category}>{product.category}</p>
               <p className={styles.price}>₺{product.price}</p>
               <button className={styles.addToCart}>Sepete Ekle</button>
+              <Link to={`/medicine/${product._id}`} className={styles.detailsLink}>
+                Detayları Gör
+              </Link>
             </div>
           ))
         ) : (

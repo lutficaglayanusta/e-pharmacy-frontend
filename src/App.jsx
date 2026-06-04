@@ -8,6 +8,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const MedicineStorePage = lazy(() => import("./pages/MedicineStorePage"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage"));
+const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           />
           <Route path="/medicine-store" element={<MedicineStorePage />} />
           <Route path="/medicine" element={<ProductsPage />} />
+          <Route path="/medicine/:id" element={<ProductDetailsPage />} />
         </Routes>
       </Suspense>
       <Footer />

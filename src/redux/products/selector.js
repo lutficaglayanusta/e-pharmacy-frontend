@@ -5,3 +5,4 @@ export const selectTotalItems = (state) => state.products.totalItems;
 export const selectTotalPages = (state) => state.products.totalPages;
 export const selectHasNextPage = (state) => state.products.hasNextPage;
 export const selectHasPreviousPage = (state) => state.products.hasPreviousPage;
+export const selectProductById = (state) => state.products.product;

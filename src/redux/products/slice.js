@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchProducts } from './operation';
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchProducts, fetchProductById } from "./operation";
 
 const productsSlice = createSlice({
   name: "products",
@@ -11,9 +11,11 @@ const productsSlice = createSlice({
     totalPages: 0,
     hasNextPage: false,
     hasPreviousPage: false,
+    product: {},
   },
   extraReducers: (builder) => {
-      builder.addCase(fetchProducts.fulfilled, (state, action) => {
+    builder
+      .addCase(fetchProducts.fulfilled, (state, action) => {
         state.items = action.payload.products;
         state.page = action.payload.page;
         state.perPage = action.payload.perPage;
@@ -21,9 +23,11 @@ const productsSlice = createSlice({
         state.totalPages = action.payload.totalPages;
         state.hasNextPage = action.payload.hasNextPage;
         state.hasPreviousPage = action.payload.hasPreviousPage;
-    });
+      })
+      .addCase(fetchProductById.fulfilled, (state, action) => {
+        state.product = action.payload;
+      });
   },
 });
-
 
 export default productsSlice.reducer;
