@@ -1,0 +1,41 @@
+import { useSelector } from "react-redux";
+import { selectMedicineStores } from "../../redux/medicine-stores/selector";
+import styles from "./MedicineStore.module.css";
+
+const MedicineStore = () => {
+  const stores = useSelector(selectMedicineStores);
+
+  console.log(stores);
+
+  return (
+    <div>
+      <ul className={styles.store}>
+        {stores.map((store) => (
+          <li>
+            <h2>{store.name}</h2>
+
+            <div className={styles.layout}>
+              <img src="../../../map-pin.svg" alt="map" />
+              <p className={styles.address}>{store.address}</p>
+            </div>
+            <div className={styles.layout}>
+              <img src="../../../phone.svg" alt="phone" />
+              <p className={styles.phone}>{store.phone}</p>
+            </div>
+
+            <div className={styles.detail}>
+              <button>Visit Store</button>
+              <div className={styles.layout}>
+                <img src="../../../star.svg" alt="star" />
+                <p>{store.rating}</p>
+                    </div>
+                    <p>OPEN</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default MedicineStore;

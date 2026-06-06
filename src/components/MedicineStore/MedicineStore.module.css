@@ -1,0 +1,42 @@
+.store{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 21px;
+}
+.store li{
+    background-color: #E7F1ED;
+    padding: 40px;
+    border-radius: 27px;
+    width: 25%;
+}
+.store h2{
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight:600;
+}
+.detail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.address{
+    margin-bottom: 14px;
+    color: #93939A;
+}
+.phone{
+    margin-bottom:36px;
+    color: #93939A;
+}
+.store button{
+    background-color: #59B17A;
+    padding: 10px 16px;
+    border-radius: 24px;
+    color: white;
+    border: none;
+}
+.layout{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

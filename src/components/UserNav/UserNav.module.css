@@ -1,0 +1,9 @@
+.logout{
+    background-color: white;
+    padding: 16px 32px;
+    border: 1px solid #59B17A;
+    color: #59B17A;
+    opacity: 0.5;
+    border-radius: 60px;
+    margin-left: 10px;
+}

@@ -6,30 +6,23 @@ import Footer from "./components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { refresh } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selector";
+import PrivateRoute from "./components/PrivateRoute";
 
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const MedicineStorePage = lazy(() => import("./pages/MedicineStorePage"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage"));
 const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
-import axios from "axios";
+const CartPage = lazy(() => import("./pages/CartPage"));
 
 function App() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const isRefreshing = useSelector(selectIsRefreshing)
-
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    console.log('1 - useEffect çalıştı');
-  
-    axios.get('/auth/refresh')
-    .then(res => console.log('2 - refresh response:', res))
-    .catch(err => console.log('3 - refresh error:', err.response));
-    dispatch(refresh())
-  },[dispatch])
-
+    dispatch(refresh());
+  }, [dispatch]);
 
   return isRefreshing ? (
     <p>Loading...</p>
@@ -43,7 +36,7 @@ function App() {
             element={
               <RestrictedRoute
                 component={<LoginPage />}
-                redirectTo="/medicine-store"
+                redirectTo="/cart"
               />
             }
           />
@@ -59,6 +52,12 @@ function App() {
           <Route path="/medicine-store" element={<MedicineStorePage />} />
           <Route path="/medicine" element={<ProductsPage />} />
           <Route path="/medicine/:id" element={<ProductDetailsPage />} />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute component={<CartPage />} redirectTo="/login" />
+            }
+          />
         </Routes>
       </Suspense>
       <Footer />
