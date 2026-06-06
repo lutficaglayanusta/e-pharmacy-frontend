@@ -1,20 +1,170 @@
-.register-page{
+.register-page {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    gap: 24px;
+    padding: 40px 0;
     position: relative;
-    top:200px;
 }
-.register-header{
+
+/* ---- Left: Header ---- */
+.register-header {
     position: relative;
-    width: 70%;
+    flex: 1 1 45%;
+    max-width: 480px;
 }
-.register-page h1{
-    font-size: 54px;
-   width: 70%;
+
+.register-page h1 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -1px;
 }
-.register-page img{
-    width: 15%;
+
+.register-page h1 span {
+    color: #4caf78;
+}
+
+.register-page img {
+    width: 150px;
     position: absolute;
-    left: 400px;
-    top:-30px;
+    top: -16px;
+    right: -10px;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.12));
+    pointer-events: none;
+}
+
+/* ---- Decorative blob ---- */
+.register-page::after {
+    content: "";
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 130px;
+    height: 130px;
+    background: rgba(76, 175, 120, 0.15);
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .register-page {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 60px 0 40px;
+        gap: 36px;
+    }
+
+    .register-header {
+        max-width: 100%;
+    }
+
+    .register-page img {
+        width: 110px;
+        top: -10px;
+        right: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .register-page h1 {
+        font-size: 26px;
+    }
+
+    .register-page img {
+        width: 80px;
+    }
+}
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    gap: 40px;
+    padding: 40px 0;
+    position: relative;
+}
+
+/* ---- Left: Header ---- */
+.login-header {
+    position: relative;
+    flex: 1 1 45%;
+    max-width: 480px;
+}
+
+.login-page h1 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.login-page h1 span {
+    color: #4caf78;
+}
+
+.login-page img {
+    width: 150px;
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.12));
+    pointer-events: none;
+}
+
+/* ---- Decorative blob ---- */
+.login-page::after {
+    content: "";
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 130px;
+    height: 130px;
+    background: rgba(76, 175, 120, 0.15);
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .login-page {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 60px 0 40px;
+        gap: 36px;
+    }
+
+    .login-header {
+        max-width: 100%;
+    }
+
+    .login-page img {
+        width: 110px;
+        top: -10px;
+        right: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .login-page h1 {
+        font-size: 26px;
+    }
+
+    .login-page img {
+        width: 80px;
+    }
 }

@@ -1,114 +1,45 @@
-.productsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
+.productsGrid{
+  display:flex;
+  flex-wrap: wrap;
+  gap:20px;
 }
-
-.productCard {
-  border: 1px solid #E8E8E8;
-  border-radius: 12px;
-  padding: 15px;
-  text-align: center;
-  background-color: white;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-}
-
-.productCard:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  border-color: #26A65B;
-  transform: translateY(-2px);
-}
-
-.imageContainer {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: #F9F9F9;
-}
-
-.productImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.productCard h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 10px 0;
-  color: #333;
-  line-height: 1.3;
-}
-
-.category {
-  font-size: 12px;
-  color: #999;
-  margin: 5px 0;
-  font-weight: 400;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: 700;
-  color: #26A65B;
-  margin: 10px 0;
-}
-
-.addToCart {
-  background-color: #26A65B;
-  color: white;
-  border: none;
-  padding: 8px 16px;
+.productsGrid img{
+  width:280px;
+  border:1px solid #59B17A;
   border-radius: 20px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  margin-top: auto;
 }
-
-.addToCart:hover {
-  background-color: #1e8449;
+.description{
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
 }
-
-.noProducts {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 40px;
-  color: #999;
-  font-size: 16px;
+.name{
+  font-size: 18px;
+  margin-bottom: 4px;
 }
-
-@media (max-width: 768px) {
-  .productsGrid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-  }
+.price{
+  font-size: 18px;
+  font-weight: bold;
 }
-
-@media (max-width: 480px) {
-  .productsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .imageContainer {
-    height: 120px;
-  }
-
-  .productCard h3 {
-    font-size: 14px;
-  }
-
-  .price {
-    font-size: 16px;
-  }
+.suppliers{
+  font-size:12px;
+  color: #1D1E21;
+  opacity: 0.6;
+}
+.button{
+  padding:10px 16px;
+  border-radius: 24px;
+  border: none;
+  background-color: #59B17A;
+  color: white;
+  margin-top: 14px;
+}
+.detailsLink{
+  color: #1D1E21;
+  font-size: 12px;
+}
+.detay{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

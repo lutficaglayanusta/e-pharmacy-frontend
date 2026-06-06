@@ -17,20 +17,32 @@ const Products = ({
         {products && products.length > 0 ? (
           products.map((product) => (
             <div key={product._id} className={styles.productCard}>
-              <div className={styles.imageContainer}>
-                <img
-                  src={product.photo}
-                  alt={product.name}
-                  className={styles.productImage}
-                />
+              <img
+                src={product.photo}
+                alt={product.name}
+                className={styles.productImage}
+              />
+              <div className={styles.description}>
+                <div className={styles.detay}>
+                  <div>
+                    <h3 className={styles.name}>{product.name}</h3>
+                    <p className={styles.suppliers}>{product.suppliers}</p>
+                  </div>
+                   
+                  <p className={styles.price}>₺{product.price}</p>
+                </div>
+               
+                <div className={styles.detay}>
+                  <button className={styles.button}>Add to cart</button>
+                <Link
+                  to={`/medicine/${product._id}`}
+                  className={styles.detailsLink}
+                >
+                  Details
+                </Link>
+                </div>
+                
               </div>
-              <h3>{product.name}</h3>
-              <p className={styles.category}>{product.category}</p>
-              <p className={styles.price}>₺{product.price}</p>
-              <button className={styles.addToCart}>Sepete Ekle</button>
-              <Link to={`/medicine/${product._id}`} className={styles.detailsLink}>
-                Detayları Gör
-              </Link>
             </div>
           ))
         ) : (

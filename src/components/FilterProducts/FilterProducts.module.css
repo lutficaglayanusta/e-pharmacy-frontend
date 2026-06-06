@@ -1,0 +1,24 @@
+.filter{
+    margin: 20px 0px;
+}
+.button{
+    padding:13px 30px;
+    background-color: #59B17A;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    border-radius: 60px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.search{
+    border-radius: 60px;
+    margin-left: 20px;
+    border: 1px solid gainsboro;
+    padding: 10px;
+}
+.category{
+    padding: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 60px;
+}

@@ -36,29 +36,56 @@ const RegisterForm = () => {
       >
         <Form className={styles.form}>
           <div>
-            <Field id="name" name="name" placeholder="User Name" type="text" />
-            <ErrorMessage name="name" component="span" className={styles.error} />
-
-            <Field
-              id="email"
-              name="email"
-              placeholder="Email address"
-              type="email"
-            />
-            <ErrorMessage name="email" component="span" className={styles.error} />
+            <div className={styles.field}>
+              <Field
+                id="name"
+                name="name"
+                placeholder="User Name"
+                type="text"
+              />
+              <ErrorMessage
+                name="name"
+                component="span"
+                className={styles.error}
+              />
+            </div>
+            <div className={styles.field}>
+              <Field
+                id="email"
+                name="email"
+                placeholder="Email address"
+                type="email"
+              />
+              <ErrorMessage
+                name="email"
+                component="span"
+                className={styles.error}
+              />
+            </div>
           </div>
 
           <div>
-            <Field
-              id="phoneNumber"
-              name="phoneNumber"
-              placeholder="Phone number"
-              type="tel"
-            />
-            <ErrorMessage name="phoneNumber" component="span" className={styles.error} />
-
-            <Field name="password" type="password" placeholder="Password" />
-            <ErrorMessage name="password" component="span" className={styles.error} />
+            <div className={styles.field}>
+              <Field
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="Phone number"
+                type="tel"
+              />
+              <ErrorMessage
+                name="phoneNumber"
+                component="span"
+                className={styles.error}
+              />
+            </div>
+            <div className={styles.field}>
+              <Field name="password" type="password" placeholder="Password" />
+              <ErrorMessage
+                name="password"
+                component="span"
+                className={styles.error}
+              />
+            </div>
           </div>
 
           <button type="submit">Register</button>

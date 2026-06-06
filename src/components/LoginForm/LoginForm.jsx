@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as Yup from 'yup';
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
+import styles from "./LoginForm.module.css"
  
 
 const LoginSchema = Yup.object().shape({
@@ -29,7 +30,7 @@ const LoginForm = () => {
         onSubmit={handleSubmit}
         validationSchema={LoginSchema}
       >
-        <Form>
+        <Form className={styles.form}>
           <Field
             id="email"
             name="email"

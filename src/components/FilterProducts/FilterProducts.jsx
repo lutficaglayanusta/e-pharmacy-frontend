@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { fetchProducts } from "../../redux/products/operation";
+import styles from "./FilterProducts.module.css"
 
 const FilterProducts = ({ onFilter }) => {
 
@@ -18,24 +19,19 @@ const FilterProducts = ({ onFilter }) => {
       }
   };
 
-  const handleReset = () => {
-    dispatch(fetchProducts({ category: '', name: '', page: 1 }));
-  };
-
   return (
-    <div>
+    <div className={styles.filter}>
       <form onSubmit={handleSubmit}>
-        <select name="category" id="category" defaultValue="">
-          <option value="">Tüm Kategoriler</option>
+        <select className={styles.category} name="category" id="category" defaultValue="">
+          <option value="">All Categories</option>
           <option value="Medicine">Medicine</option>
           <option value="Heart">Heart</option>
           <option value="Head">Head</option>
           <option value="Hand">Hand</option>
           <option value="Leg">Leg</option>
         </select>
-        <input type="text" name="name" placeholder="Search products..." />
-        <button type="submit">Filter</button>
-        <button type="button" onClick={handleReset}>Reset</button>
+        <input type="search" name="name" className={styles.search} placeholder="Search products..." />
+        <button type="submit" className={styles.button}>Filter</button>
       </form>
     </div>
   );
