@@ -168,3 +168,7 @@
         width: 80px;
     }
 }
+.cart-page{
+    display: flex;
+    gap: 80px;
+}

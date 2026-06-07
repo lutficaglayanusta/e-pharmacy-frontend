@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 import styles from "./Products.module.css";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cart/operation";
 
 const Products = ({
   products,
@@ -10,6 +12,19 @@ const Products = ({
   hasPreviousPage,
   onPageChange,
 }) => {
+
+  const dispatch = useDispatch()
+
+  const handleCart = (product) => {
+    dispatch(addToCart({
+      photo: product.photo,
+      name: product.name,
+      suppliers: product.suppliers,
+      price: product.price,
+      quantity:1
+    }))
+  }
+
   return (
     <div>
       {/* Ürünler Listesi */}
@@ -33,7 +48,7 @@ const Products = ({
                 </div>
                
                 <div className={styles.detay}>
-                  <button className={styles.button}>Add to cart</button>
+                  <button onClick={()=>handleCart(product)} className={styles.button}>Add to cart</button>
                 <Link
                   to={`/medicine/${product._id}`}
                   className={styles.detailsLink}

@@ -11,7 +11,7 @@ const MedicineStore = () => {
     <div>
       <ul className={styles.store}>
         {stores.map((store) => (
-          <li>
+          <li key={store._id}>
             <h2>{store.name}</h2>
 
             <div className={styles.layout}>
