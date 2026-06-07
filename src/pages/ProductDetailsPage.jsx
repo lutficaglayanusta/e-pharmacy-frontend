@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchProductById } from "../redux/products/operation";
-import { selectProductById } from "../redux/products/selector";
+import ProductsDetail from "../components/ProductsDetail/ProductsDetail";
 
 const ProductDetailsPage = () => {
 
@@ -10,17 +10,18 @@ const ProductDetailsPage = () => {
     
     const dispatch = useDispatch();
 
-    const product = useSelector(selectProductById);
-
     useEffect(() => {
         dispatch(fetchProductById(id));
     },[dispatch,id])
 
-    console.log(product);
+    
   return (
-    <div>
+    <>
+      <div className="container">
+        <ProductsDetail/>
+      </div>
       
-    </div>
+    </>
   )
 }
 

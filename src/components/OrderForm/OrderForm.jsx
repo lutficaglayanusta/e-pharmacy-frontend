@@ -1,6 +1,8 @@
 // OrderForm.jsx
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useSelector } from "react-redux";
+import { selectCarts } from "../../redux/cart/selector";
 import styles from "./OrderForm.module.css";
 
 const OrderSchema = Yup.object().shape({
@@ -12,6 +14,15 @@ const OrderSchema = Yup.object().shape({
 });
 
 const OrderForm = () => {
+  const carts = useSelector(selectCarts);
+
+  // Total hesapla: quantity * price toplamı
+  const calculateTotal = () => {
+    return carts.reduce((total, item) => {
+      return total + item.quantity * parseFloat(item.price);
+    }, 0).toFixed(2);
+  };
+
   const handleSubmit = (values) => {
     console.log(values);
   };
@@ -103,7 +114,7 @@ const OrderForm = () => {
 
               <div className={styles.totalBox}>
                 <span className={styles.totalLabel}>Total:</span>
-                <span className={styles.totalAmount}>৳ 122.00</span>
+                <span className={styles.totalAmount}>৳ {calculateTotal()}</span>
               </div>
 
               <button type="submit" className={styles.submitBtn}>
