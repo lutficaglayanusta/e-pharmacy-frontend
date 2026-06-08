@@ -27,7 +27,7 @@ const MedicineStore = () => {
                 <img src="../../../star.svg" alt="star" />
                 <p>{store.rating}</p>
                     </div>
-                    <p>OPEN</p>
+                    
             </div>
           </li>
         ))}

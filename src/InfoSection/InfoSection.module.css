@@ -38,3 +38,11 @@
     color: #93939A;
     text-decoration: none;
 }
+@media screen and (max-width:600px) {
+    .wrapper{
+        flex-direction: column;
+    }
+    .wrapper li{
+        width: 100%;
+    }
+}

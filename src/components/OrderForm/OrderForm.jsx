@@ -8,11 +8,11 @@ import styles from "./OrderForm.module.css";
 import { checkoutCart } from "../../redux/cart/operation";
 
 const OrderSchema = Yup.object().shape({
-  name: Yup.string().min(2, "En az 2 karakter").required("Ad zorunludur"),
-  email: Yup.string().email("Geçerli bir email girin").required("Email zorunludur"),
-  phone: Yup.string().required("Telefon zorunludur"),
-  address: Yup.string().min(10, "En az 10 karakter").required("Adres zorunludur"),
-  paymentMethod: Yup.string().required("Ödeme yöntemi seçiniz"),
+  name: Yup.string().min(2, "At least 2 characters").required("Required"),
+  email: Yup.string().email("Invalid Email").required("Required"),
+  phone: Yup.string().required("Required"),
+  address: Yup.string().min(10, "At least 10 characters").required("Required"),
+  paymentMethod: Yup.string().required("Please select the payment method"),
 });
 
 const OrderForm = () => {

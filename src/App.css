@@ -135,6 +135,10 @@
     pointer-events: none;
     z-index: 0;
 }
+.cart-page {
+    display: flex;
+    gap: 80px;
+}
 
 /* ============================================================
    RESPONSIVE
@@ -159,7 +163,7 @@
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
     .login-page h1 {
         font-size: 26px;
     }
@@ -167,8 +171,7 @@
     .login-page img {
         width: 80px;
     }
-}
-.cart-page{
-    display: flex;
-    gap: 80px;
+    .cart-page{
+        flex-direction: column;
+    }
 }

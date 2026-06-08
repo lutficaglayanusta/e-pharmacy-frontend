@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { refresh } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selector";
 import PrivateRoute from "./components/PrivateRoute";
+import Modal from 'react-modal';
 
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
@@ -14,7 +15,9 @@ const MedicineStorePage = lazy(() => import("./pages/MedicineStorePage"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage"));
 const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
-const HomePage = lazy(()=> import("./pages/HomePage"))
+const HomePage = lazy(() => import("./pages/HomePage"))
+
+Modal.setAppElement('#root');
 
 function App() {
   const dispatch = useDispatch();

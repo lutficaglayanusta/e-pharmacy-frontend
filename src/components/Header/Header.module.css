@@ -1,0 +1,71 @@
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #59B17A;
+    border-radius: 2px;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #59B17A;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.drawerOpen {
+    transform: translateX(0);
+}
+
+.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.drawerAuth {
+    position: absolute;
+    bottom: 40px;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 199;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .desktopNav {
+        display: none;
+    }
+}

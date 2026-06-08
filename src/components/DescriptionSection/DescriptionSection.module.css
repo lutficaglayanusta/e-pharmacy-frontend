@@ -54,3 +54,21 @@ margin-top: 30px;
     top: 15px;
     color: black;
 }
+@media screen and (max-width:600px) {
+    .info{
+        flex-direction: column;
+    }
+    .list{
+        flex-direction: column;
+    }
+    .description h4{
+        width: 100%;
+    }
+    .description p{
+        width: 100%;
+    }
+    .description .logo{
+        width: 100%;
+        margin-top: 20px;
+    }
+}

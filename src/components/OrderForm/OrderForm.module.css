@@ -73,6 +73,9 @@
     color: #e53935;
     padding-left: 4px;
 }
+.error::before{
+    content: "*";
+}
 
 /* Divider */
 .divider {
@@ -157,4 +160,12 @@
 
 .submitBtn:hover {
     background-color: #4aa568;
+}
+@media screen and (max-width:600px) {
+    .wrapper{
+        width: 100%;
+    }
+    .grid{
+        grid-template-columns: 1fr;
+    }
 }

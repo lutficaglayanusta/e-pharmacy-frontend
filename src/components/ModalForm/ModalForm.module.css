@@ -1,0 +1,49 @@
+.wrapper{
+    padding: 50px 70px;
+    border-radius: 20px;
+    position: relative;
+}
+.wrapper h2{
+    text-align: center;
+    margin-bottom: 14px;
+}
+.wrapper p{
+    text-align: center;
+    color: #6A6A6F;
+    margin-bottom: 25px;
+}
+.wrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.wrapper form input{
+    padding: 10px 20px;
+    border: 1px solid gainsboro;
+    border-radius: 100px;
+}
+.wrapper .eks{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.wrapper button{
+    background-color: #59B17A;
+    border: none;
+    padding: 10px;
+    border-radius: 100px;
+    color: white;
+}
+.wrapper a{
+    text-align: center;
+    color: #1D1E21;
+    opacity: 0.4;
+    text-decoration: none;
+}
+.error{
+    color: red;
+}
+.error::before{
+    content: "*";
+}

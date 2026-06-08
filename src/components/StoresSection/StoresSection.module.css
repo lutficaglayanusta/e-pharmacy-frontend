@@ -36,3 +36,11 @@
     align-items: center;
     gap: 7px;
 }
+@media screen and (max-width: 600px) {
+    .wrapper{
+        flex-direction: column;
+    }
+    .wrapper li{
+        width: 100%;
+    }
+}

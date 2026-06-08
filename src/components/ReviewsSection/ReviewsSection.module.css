@@ -20,3 +20,13 @@
     color: #93939A;
     line-height: 20px;
 }
+@media screen and (max-width:600px) {
+    .list{
+        flex-direction: column;
+        
+    }
+    .list li{
+        width: 100%;
+        margin-top: 20px;
+    }
+}

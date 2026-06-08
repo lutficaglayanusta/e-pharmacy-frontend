@@ -3,6 +3,23 @@ import Pagination from "../Pagination/Pagination";
 import styles from "./Products.module.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cart/operation";
+import { useState } from "react";
+import Modal from 'react-modal'; 
+import ModalForm from "../ModalForm/ModalForm";
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+  overlay: {
+    backgroundColor: 'rgba(0,0,0,0.4)',
+  }
+};
 
 const Products = ({
   products,
@@ -12,6 +29,15 @@ const Products = ({
   hasPreviousPage,
   onPageChange,
 }) => {
+   const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const dispatch = useDispatch()
 
@@ -22,12 +48,19 @@ const Products = ({
       suppliers: product.suppliers,
       price: product.price,
       quantity:1
-    }))
+    })).unwrap()
+      .then(() => {
+      
+      }).catch((e) => {
+        if (e === "Request failed with status code 401") {
+          openModal()
+        }
+      
+    })
   }
 
   return (
     <div>
-      {/* Ürünler Listesi */}
       <div className={styles.productsGrid}>
         {products && products.length > 0 ? (
           products.map((product) => (
@@ -65,7 +98,6 @@ const Products = ({
         )}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <Pagination
           currentPage={currentPage}
@@ -75,6 +107,13 @@ const Products = ({
           onPageChange={onPageChange}
         />
       )}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+      >
+        <ModalForm onClose={closeModal} />
+      </Modal>
     </div>
   );
 };

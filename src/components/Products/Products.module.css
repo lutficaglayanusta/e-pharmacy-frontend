@@ -43,3 +43,12 @@
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width:600px) {
+  .productCard{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .productCard img{
+    width: 99%;
+  }
+}

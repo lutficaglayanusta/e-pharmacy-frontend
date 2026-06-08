@@ -40,3 +40,11 @@
     align-items: center;
     gap: 5px;
 }
+@media screen and (max-width:600px) {
+    .store{
+        flex-direction: column;
+    }
+    .store li{
+        width: 100%;
+    }
+}
