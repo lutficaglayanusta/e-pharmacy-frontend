@@ -5,8 +5,6 @@ import styles from "./MedicineStore.module.css";
 const MedicineStore = () => {
   const stores = useSelector(selectMedicineStores);
 
-  console.log(stores);
-
   return (
     <div>
       <ul className={styles.store}>

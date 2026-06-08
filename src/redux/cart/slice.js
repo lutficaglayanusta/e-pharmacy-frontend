@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   addToCart,
+  checkoutCart,
   deleteByOneProduct,
   deleteProductCart,
   fetchCart,
@@ -49,6 +50,9 @@ const cartSlice = createSlice({
             (item) => item._id !== action.meta.arg,
           );
         }
+      })
+      .addCase(checkoutCart.fulfilled, (state) => {
+        state.items = [];
       });
   },
 });

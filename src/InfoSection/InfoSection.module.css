@@ -1,0 +1,40 @@
+.info{
+    padding: 100px 0px;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    list-style: none;
+}
+.wrapper li{
+    padding: 14px 18px;
+    background-color: white;
+    border-radius: 27px;
+    width: 25%;
+}
+.parag{
+    background-color: #E7F1ED;
+    color: #59B17A;
+    border-radius: 50%;
+    padding: 10px 20px;
+    font-size: 28px
+}
+.layout{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 14px;
+}
+.size{
+    font-size: 36px;
+}
+.description{
+    font-size: 20px;
+}
+.link{
+    color: #93939A;
+    text-decoration: none;
+}

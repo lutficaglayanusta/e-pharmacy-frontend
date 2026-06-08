@@ -7,3 +7,26 @@
     border-radius: 60px;
     margin-left: 10px;
 }
+.layout{
+    position: relative;
+
+}
+.layout img{
+    border: 1px solid gainsboro;
+    background-color: white;
+    padding: 12px;
+    border-radius: 50%;
+}
+.layout p{
+    position: absolute;
+    left: 30px;
+    top: 1px;
+    background-color: #E7F1ED;
+    color: #59B17A;
+    padding: 1px 5px;
+    border-radius: 50%;
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+}

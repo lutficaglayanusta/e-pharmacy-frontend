@@ -6,8 +6,6 @@ import { addToCart, deleteByOneProduct, deleteProductCart } from "../../redux/ca
 const Carts = () => {
   const carts = useSelector(selectCarts);
 
-  console.log(carts);
-
   const dispatch = useDispatch();
 
   const handleIncrement = (cart) => {

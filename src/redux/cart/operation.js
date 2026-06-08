@@ -41,3 +41,13 @@ export const deleteByOneProduct = createAsyncThunk(
     }
   },
 );
+export const checkoutCart = createAsyncThunk(
+  "cart/checkout",
+  async (credentials, thunkAPI) => {
+    try {
+      await axios.post("/cart/checkout", credentials);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

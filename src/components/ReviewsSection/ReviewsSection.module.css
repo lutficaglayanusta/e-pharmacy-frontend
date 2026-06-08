@@ -1,0 +1,22 @@
+.list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.list li{
+    background-color: white;
+    padding: 40px 28px;
+    border-radius: 27px;
+    gap: 20px;
+    text-align: center;
+    width: 33.3%;
+    margin-right: 28px;
+}
+.list li h4{
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+.list li p{
+    color: #93939A;
+    line-height: 20px;
+}

@@ -1,0 +1,38 @@
+.heading{
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: 40px;
+}
+.parag{
+    text-align: center;
+    color: #93939A;
+    margin-bottom: 14px;
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.wrapper h3{
+    font-size: 20px;
+}
+.wrapper li{
+    background-color: #E7F1ED;
+    padding: 40px;
+    border-radius: 27px;
+    width: 25%;
+}
+.layout{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.info{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}

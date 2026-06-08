@@ -1,9 +1,11 @@
 // OrderForm.jsx
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useMemo } from "react";
 import { selectCarts } from "../../redux/cart/selector";
 import styles from "./OrderForm.module.css";
+import { checkoutCart } from "../../redux/cart/operation";
 
 const OrderSchema = Yup.object().shape({
   name: Yup.string().min(2, "En az 2 karakter").required("Ad zorunludur"),
@@ -16,6 +18,8 @@ const OrderSchema = Yup.object().shape({
 const OrderForm = () => {
   const carts = useSelector(selectCarts);
 
+  const dispatch = useDispatch()
+
   // Total hesapla: quantity * price toplamı
   const calculateTotal = () => {
     return carts.reduce((total, item) => {
@@ -23,20 +27,30 @@ const OrderForm = () => {
     }, 0).toFixed(2);
   };
 
+  const initialValues = useMemo(() => {
+    const total = carts.reduce((acc, item) => {
+      return acc + item.quantity * parseFloat(item.price);
+    }, 0).toFixed(2);
+
+    return {
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      paymentMethod: "cash",
+      totalPrice: total,
+    };
+  }, [carts]);
+
   const handleSubmit = (values) => {
-    console.log(values);
+    dispatch(checkoutCart(values))
   };
 
   return (
     <div className={styles.wrapper}>
       <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          phone: "",
-          address: "",
-          paymentMethod: "cash",
-        }}
+        initialValues={initialValues}
+        enableReinitialize={true}
         onSubmit={handleSubmit}
         validationSchema={OrderSchema}
       >

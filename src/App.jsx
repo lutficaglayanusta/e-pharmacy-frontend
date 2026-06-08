@@ -14,6 +14,7 @@ const MedicineStorePage = lazy(() => import("./pages/MedicineStorePage"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage"));
 const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
+const HomePage = lazy(()=> import("./pages/HomePage"))
 
 function App() {
   const dispatch = useDispatch();
@@ -30,7 +31,8 @@ function App() {
     <>
       <Header />
       <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
+          <Routes>
+            <Route path="/" element={<HomePage/>} />
           <Route
             path="/login"
             element={
