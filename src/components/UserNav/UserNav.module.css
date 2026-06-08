@@ -6,6 +6,7 @@
     opacity: 0.5;
     border-radius: 60px;
     margin-left: 10px;
+    cursor: pointer;
 }
 .layout{
     position: relative;

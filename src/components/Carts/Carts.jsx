@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./Carts.module.css";
 import { selectCarts } from "../../redux/cart/selector";
 import { addToCart, deleteByOneProduct, deleteProductCart } from "../../redux/cart/operation";
+import toast from "react-hot-toast";
 
 const Carts = () => {
   const carts = useSelector(selectCarts);
@@ -20,7 +21,14 @@ const Carts = () => {
     );
     };
     const handleDelete = (id) => {
-        dispatch(deleteProductCart(id))
+      dispatch(deleteProductCart(id))
+        .unwrap()
+        .then(() => {
+          toast.success("Deleted from cart successfully")
+        })
+        .catch(() => {
+        toast.error("Something went wrong")
+      })
     }
     const handleDeleteOne = (id) => {
         dispatch(deleteByOneProduct(id))

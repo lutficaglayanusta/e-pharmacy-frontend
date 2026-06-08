@@ -6,6 +6,7 @@ import { addToCart } from "../../redux/cart/operation";
 import { useState } from "react";
 import Modal from 'react-modal'; 
 import ModalForm from "../ModalForm/ModalForm";
+import toast from "react-hot-toast";
 
 const customStyles = {
   content: {
@@ -50,7 +51,7 @@ const Products = ({
       quantity:1
     })).unwrap()
       .then(() => {
-      
+        toast.success("Added to cart successfully")
       }).catch((e) => {
         if (e === "Request failed with status code 401") {
           openModal()

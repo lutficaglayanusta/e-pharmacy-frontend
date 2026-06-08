@@ -3,6 +3,7 @@ import styles from "./ProductsDetail.module.css";
 import { selectProductById } from "../../redux/products/selector";
 import { useState } from "react";
 import { addToCart } from "../../redux/cart/operation";
+import toast from "react-hot-toast";
 
 const ProductsDetail = () => {
   const [quantity, setQuantity] = useState(1);
@@ -23,6 +24,13 @@ const ProductsDetail = () => {
             price: product.price,
             quantity
         }))
+        .unwrap()
+          .then(() => {
+        toast.success("Added to cart successfully")
+          })
+          .catch(() => {
+        toast.error("Something went wrong")
+      })
     }
 
   return (

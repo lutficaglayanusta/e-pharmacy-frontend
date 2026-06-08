@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import styles from "./LoginForm.module.css"
+import toast from "react-hot-toast";
  
 
 const LoginSchema = Yup.object().shape({
@@ -17,7 +18,22 @@ const LoginForm = () => {
 
 
   const handleSubmit = (values) => {
-    dispatch(login(values));
+    dispatch(login(values))
+      .unwrap()
+      .then(() => {
+        toast.success("Login successfully")
+      })
+      .catch((e) => {
+        if (e === "Request failed with status code 404") {
+          toast.error("There is no such email")
+          return
+        }
+        if (e === "Request failed with status code 401") {
+          toast.error("Password is incorrect")
+          return
+        }
+      toast.error("Something went wrong")
+    })
   };
 
   return (

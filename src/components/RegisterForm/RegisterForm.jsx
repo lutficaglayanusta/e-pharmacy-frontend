@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 
 import styles from "./RegisterForm.module.css";
+import toast from "react-hot-toast";
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string().min(2, "Too Short!").required("Required"),
@@ -17,7 +18,18 @@ const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(register(values));
+    dispatch(register(values))
+      .unwrap()
+      .then(() => {
+      toast.success("Register successfully")
+      })
+      .catch((e) => {
+        if (e === "Request failed with status code 409") {
+          toast.error("This email is already exists")
+          return
+        }
+      toast.error("Something went wrong")
+    })
 
     actions.resetForm();
   };

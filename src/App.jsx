@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { refresh } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selector";
 import PrivateRoute from "./components/PrivateRoute";
-import Modal from 'react-modal';
+import Modal from "react-modal";
+import { Toaster } from "react-hot-toast";
 
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
@@ -15,17 +16,19 @@ const MedicineStorePage = lazy(() => import("./pages/MedicineStorePage"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage"));
 const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
-const HomePage = lazy(() => import("./pages/HomePage"))
+const HomePage = lazy(() => import("./pages/HomePage"));
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 function App() {
   const dispatch = useDispatch();
 
   const isRefreshing = useSelector(selectIsRefreshing);
 
+
   useEffect(() => {
-    dispatch(refresh());
+      dispatch(refresh());
+    
   }, [dispatch]);
 
   return isRefreshing ? (
@@ -34,15 +37,12 @@ function App() {
     <>
       <Header />
       <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<HomePage/>} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/login"
             element={
-              <RestrictedRoute
-                component={<LoginPage />}
-                redirectTo="/cart"
-              />
+              <RestrictedRoute component={<LoginPage />} redirectTo="/cart" />
             }
           />
           <Route
@@ -66,6 +66,7 @@ function App() {
         </Routes>
       </Suspense>
       <Footer />
+      <Toaster position="top-right" duration={2000} />
     </>
   );
 }
